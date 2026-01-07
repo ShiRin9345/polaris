@@ -11,6 +11,7 @@ import {
 import { dark } from "@clerk/themes";
 import { ThemeProvider } from "next-themes";
 import UnauthenticatedView from "@/features/auth/components/unauthenticated-view";
+import { AuthLoadingView } from "@/features/auth/components/auth-loading-view";
 
 if (!process.env.NEXT_PUBLIC_CONVEX_URL) {
   throw new Error("Missing NEXT_PUBLIC_CONVEX_URL in your .env file");
@@ -34,7 +35,9 @@ export default function Providers({ children }: { children: React.ReactNode }) {
           <Unauthenticated>
             <UnauthenticatedView />
           </Unauthenticated>
-          <AuthLoading>Authloading...</AuthLoading>
+          <AuthLoading>
+            <AuthLoadingView />
+          </AuthLoading>
         </ConvexProviderWithClerk>
       </ClerkProvider>
     </ThemeProvider>
