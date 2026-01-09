@@ -1,5 +1,5 @@
 import { Id } from "@/convex/_generated/dataModel";
-import { ProjectIdLayout } from "@/features/auth/projects/components/project-id-layout";
+import { ProjectIdLayout } from "@/features/projects/components/project-id-layout";
 
 const Layout = async ({
   children,

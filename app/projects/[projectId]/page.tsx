@@ -1,5 +1,5 @@
 import { Id } from "@/convex/_generated/dataModel";
-import ProjectIdView from "@/features/auth/projects/components/project-id-view";
+import ProjectIdView from "@/features/projects/components/project-id-view";
 
 export default async function ProjectIdPage({
   params,
