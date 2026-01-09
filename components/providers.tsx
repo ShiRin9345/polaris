@@ -28,10 +28,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
     >
       <ClerkProvider appearance={{ theme: dark }}>
         <ConvexProviderWithClerk client={convex} useAuth={useAuth}>
-          <Authenticated>
-            <UserButton />
-            {children}
-          </Authenticated>
+          <Authenticated>{children}</Authenticated>
           <Unauthenticated>
             <UnauthenticatedView />
           </Unauthenticated>
