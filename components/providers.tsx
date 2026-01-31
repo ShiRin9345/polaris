@@ -1,5 +1,5 @@
 "use client";
-import { useAuth, UserButton } from "@clerk/nextjs";
+import { useAuth } from "@clerk/nextjs";
 import { ConvexProviderWithClerk } from "convex/react-clerk";
 import { ClerkProvider } from "@clerk/nextjs";
 import {

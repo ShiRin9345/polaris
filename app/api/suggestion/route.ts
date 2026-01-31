@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { deepseek } from "@ai-sdk/deepseek";
 import { auth } from "@clerk/nextjs/server";
-import { use } from "react";
 
 const SUGGESTION_PROMPT = `You are a code suggestion assistant.
 
@@ -59,7 +58,7 @@ const suggestionSchema = z.object({
   suggestion: z
     .string()
     .describe(
-      "The code to insert at cursor, or empty string if no completion needed"
+      "The code to insert at cursor, or empty string if no completion needed",
     ),
 });
 
@@ -104,7 +103,7 @@ export async function POST(request: Request) {
     console.error("Suggestion API Error:", error);
     return NextResponse.json(
       { error: "Failed to generate suggestion" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

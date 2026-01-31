@@ -27,7 +27,7 @@ const Tab = ({
       onClick={onClick}
       className={cn(
         "flex items-center gap-2 h-full px-3 cursor-pointer text-muted-foreground border-r hover:bg-accent/30",
-        isActive && "bg-background text-foreground"
+        isActive && "bg-background text-foreground",
       )}
     >
       <span className="text-sm">{label}</span>
@@ -66,7 +66,7 @@ export default function ProjectIdView({
         <div
           className={cn(
             "absolute inset-0",
-            activeView === "editor" ? "visible" : "invisible"
+            activeView === "editor" ? "visible" : "invisible",
           )}
         >
           <Allotment defaultSizes={[DEFAULT_SIDEBAR_WIDTH, DEFAULT_MAIN_SIZE]}>
@@ -86,7 +86,7 @@ export default function ProjectIdView({
         <div
           className={cn(
             "absolute inset-0",
-            activeView === "preview" ? "visible" : "invisible"
+            activeView === "preview" ? "visible" : "invisible",
           )}
         >
           <div>Preview</div>
