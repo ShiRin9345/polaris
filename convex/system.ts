@@ -1,5 +1,6 @@
 import { v } from "convex/values";
 import { mutation, query } from "./_generated/server";
+import { Id } from "./_generated/dataModel";
 const validateInternalKey = (key: string) => {
   const internalKey = process.env.POLARIS_CONVEX_INTERNAL_KEY;
 
@@ -167,12 +168,16 @@ export const getProjectFiles = query({
 export const getFileById = query({
   args: {
     internalKey: v.string(),
-    fileId: v.id("files"),
+    fileId: v.string(),
   },
   handler: async (ctx, args) => {
     validateInternalKey(args.internalKey);
 
-    return await ctx.db.get(args.fileId);
+    try {
+      return await ctx.db.get(args.fileId as Id<"files">);
+    } catch {
+      return null;
+    }
   },
 });
 

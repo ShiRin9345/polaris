@@ -152,7 +152,7 @@ export const processMessage = inngest.createFunction(
 
     const codingAgent = createAgent({
       name: "coding-agent",
-      system: CODING_AGENT_SYSTEM_PROMPT,
+      system: systemPrompt,
       model: deepseek({
         model: "deepseek-chat",
         defaultParameters: {

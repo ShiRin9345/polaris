@@ -34,7 +34,7 @@ export const useCreateProject = () => {
           ...existingProjects,
         ]);
       }
-    }
+    },
   );
 };
 
@@ -53,9 +53,14 @@ export const useRenameProject = (projectId: Id<"projects">) => {
             ...existingProject,
             name: args.name,
             updatedAt: Date.now(),
-          }
+          },
         );
       }
-    }
+    },
   );
+};
+
+export const useUpdateProjectSettings = () => {
+  // TODO: add optimistic mutation
+  return useMutation(api.projects.updateSettings);
 };
