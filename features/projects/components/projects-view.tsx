@@ -16,6 +16,7 @@ import {
 } from "unique-names-generator";
 import { useEffect, useState } from "react";
 import { ProjectsCommandDialog } from "./projects-command-dialog";
+import { ImportGithubDialog } from "./import-github-dialog";
 
 const font = Poppins({
   subsets: ["latin"],
@@ -25,6 +26,7 @@ const font = Poppins({
 export default function ProjectsView() {
   const createProject = useCreateProject();
   const [commandDialogOpen, setCommandDialogOpen] = useState(false);
+  const [importDialogOpen, setImportDialogOpen] = useState(false);
   useEffect(() => {
     const controller = new AbortController();
     document.addEventListener(
@@ -36,9 +38,13 @@ export default function ProjectsView() {
             e.preventDefault();
             setCommandDialogOpen(true);
           }
+          if (e.key === "i") {
+            e.preventDefault();
+            setImportDialogOpen(true);
+          }
         }
       },
-      { signal: controller.signal }
+      { signal: controller.signal },
     );
     return () => {
       controller.abort();
@@ -49,6 +55,10 @@ export default function ProjectsView() {
       <ProjectsCommandDialog
         open={commandDialogOpen}
         onOpenChange={setCommandDialogOpen}
+      />
+      <ImportGithubDialog
+        open={importDialogOpen}
+        onOpenChange={setImportDialogOpen}
       />
       <div className="min-h-screen bg-sidebar flex flex-col items-center justify-center p-6 md:p-16">
         <div className="w-full max-w-sm mx-auto flex flex-col gap-4 items-center">
@@ -62,7 +72,7 @@ export default function ProjectsView() {
               <h1
                 className={cn(
                   "text-4xl md:text-5xl font-semibold",
-                  font.className
+                  font.className,
                 )}
               >
                 Polaris
