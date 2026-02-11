@@ -99,7 +99,7 @@ export default function ProjectsView() {
               </Button>
               <Button
                 variant="outline"
-                onClick={() => {}}
+                onClick={() => setImportDialogOpen(true)}
                 className="h-full items-start justify-start p-4 bg-background border flex flex-col gap-6 rounded-none outline-none"
               >
                 <div className="flex items-center justify-between w-full">
